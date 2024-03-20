@@ -1,0 +1,128 @@
+:root {
+  font-size: 62.5%;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: "Source Serif 4", sans-serif;
+  font-weight: 400;
+  color: #a54328;
+  background-image: url("./assets/images/old-paper.jpg");
+  padding: 5.4rem 3.7rem;
+}
+
+body main {
+  box-sizing: content-box;
+  display: flex;
+  flex-direction: column;
+  gap: 3.2rem;
+  max-width: 325px;
+  margin-inline: auto;
+}
+
+main div.recipe h1,
+main div.preparation-method h2 {
+  /* Uso de Clamp() quando precisamos de maior fluidez em relação ao tamanho da fonte: 
+  font-size: clamp(min_val, ideal_val, max_val) = clamp (2.8rem, 2vw + 1rem, 4rem)
+
+  - O valor ideal deve sempre estar entre o mínimo e o máximo para o clamp funcionar 
+  corretamente, o que irá fazer, basicamente, com que ele altere o tamanho da fonte, 
+  reduzindo/aumentado-a gradativamente conforme a tela diminui ou aumentar, em outras
+  palavras, conforme o valor ideal se torna menor que o menor valor ou maior (de acordo 
+  com a mudança no tamanho da tela).
+  */
+  font-size: clamp(2.5rem, 2vw + 1.25rem, 4rem);
+  line-height: clamp(3.6rem, 2vw + 1rem, 5rem);
+}
+
+div.recipe img {
+  width: 100%;
+  margin-block: 4.6rem;
+}
+
+div.recipe p,
+ul,
+ol {
+  font-size: clamp(1.6rem, 1vw + 0.4rem, 2rem);
+  line-height: clamp(1.8rem, 1vw + 1rem, 2.5rem);
+}
+
+main div.preparation-method h2 {
+  margin-bottom: 3.6rem;
+}
+
+ul + ol {
+  margin-top: 2rem;
+}
+
+li {
+  margin-left: 2.7rem;
+  line-height: 2.5rem;
+}
+
+div.preparation-method button {
+  margin-top: 2.4rem;
+  padding: 0.85rem 1.25rem;
+
+  font-family: "Source Serif 4", sans-serif;
+  line-height: 2.4rem;
+  letter-spacing: 0.2rem;
+  word-spacing: 0.2rem;
+  background-color: #a54328;
+  color: #fff;
+
+  border-radius: 0.6rem;
+  border: 0;
+  transition: linear 0.25s;
+}
+
+div.preparation-method button:hover {
+  filter: brightness(110%);
+}
+
+@media (min-width: 768px) {
+  body {
+    padding: 7.5rem 5.5rem;
+  }
+
+  body main {
+    flex-direction: row;
+    max-width: fit-content;
+    gap: 6rem;
+  }
+
+  main div.recipe {
+    max-width: 435px;
+  }
+
+  main div.preparation-method {
+    max-width: 525px;
+  }
+
+  li {
+    margin-left: 3.2rem;
+  }
+
+  body main > div {
+    flex: 1;
+  }
+
+  div.preparation-method button {
+    padding: 1.1rem 2rem;
+    font-size: 1.4rem;
+  }
+}
+
+@media (min-width: 1440px) {
+  body main {
+    gap: 14rem;
+  }
+}
